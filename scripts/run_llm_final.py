@@ -63,11 +63,9 @@ import json
 import os
 from timing_utils import Timer
 
-# ... твоя функция query_ollama и остальной код
-
 def main():
-    input_file = "data/test_dataset.csv"
-    output_file = "data/llm_outputs.json"
+    input_file = "data/test_dataset2.csv"
+    output_file = "data/llm_outputs2.json"
     os.makedirs("data", exist_ok=True)
 
     outputs = {}
@@ -87,7 +85,7 @@ def main():
                 response = query_ollama(raw_text)
                 req_timer.stop()
 
-                print(f"⏱ Время запроса: {req_timer.elapsed():.2f} сек")
+                print(f"Время запроса: {req_timer.elapsed():.2f} сек")
 
                 parsed = json.loads(response)
                 outputs[raw_text] = parsed
